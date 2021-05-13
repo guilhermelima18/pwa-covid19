@@ -1,7 +1,13 @@
 import React from 'react';
+import './styles/global.css';
+
+import styles from './styles/App.module.scss';
+import Main from './containers/Main';
 
 export default function App() {
   return (
-    <h1>Olá, mundo</h1>
+    <div className={styles.container}>
+      <Main />
+    </div>
   );
 };
