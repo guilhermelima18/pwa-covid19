@@ -1,0 +1,24 @@
+.container {
+  width: 70%;
+  min-width: 350px;
+  height: 50%;
+  margin: 0 auto;
+
+  .cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: 100%;
+    height: auto;
+
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}

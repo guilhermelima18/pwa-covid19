@@ -1,0 +1,40 @@
+.container {
+  background-color: #FFF;
+  width: 100%;
+  max-width: 500px;
+  height: 50%;
+  margin: 20px auto;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 40px;
+
+  h2 {
+    margin: 10px 0;
+    font-size: 2rem;
+  }
+
+  h4 {
+    margin: 5px 0;
+    font-size: 1.3rem;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  .selectCountry {
+    background-color: blue;
+    margin: 15px 0;
+
+    select {
+      width: 300px;
+      padding: 5px;
+      border: 1px solid gray;
+      outline: none;
+    }
+  }
+}
