@@ -6,7 +6,7 @@ import styles from './style.module.scss';
 
 const navigatorHasShare = navigator.share;
 
-export default function Panel({ updateAt, onChange, data, country, getCovidData }) {
+export default function Panel({ updateAt, onChange, data, country }) {
   const { cases } = data;
 
   const textCovid19 = `País: ${country} - Total de casos: ${cases}`
