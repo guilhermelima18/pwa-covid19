@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
 import './styles/global.css';
 
 import styles from './styles/App.module.scss';
@@ -7,16 +7,16 @@ import Board from './components/Board/index';
 import Panel from './components/Panel/index';
 
 export default function App() {
-  const [data, setData] = useState({});
-  const [country, setCountry] = useState('brazil');
+  const [data, setData] = React.useState({});
+  const [country, setCountry] = React.useState('brazil');
   const updateAt = new Date().toLocaleString();
 
-  const getCovidData = useCallback((country) => {
+  const getCovidData = React.useCallback((country) => {
     Api.getCountry(country)
       .then((data) => setData(data))
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     getCovidData(country)
   }, [getCovidData, country])
 
@@ -32,6 +32,7 @@ export default function App() {
         onChange={handleChange}
         country={country}
         getCovidData={getCovidData}
+        data={data}
       />
       <Board data={data} />
     </div>

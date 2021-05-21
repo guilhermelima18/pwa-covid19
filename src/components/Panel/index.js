@@ -1,9 +1,39 @@
 import React from 'react';
 import COUNTRIES from '../../constants/countries';
+import Button from '../Button/index';
 
 import styles from './style.module.scss';
 
+const navigatorHasShare = navigator.share;
+
 export default function Panel({ updateAt, onChange, data, country, getCovidData }) {
+  const { cases } = data;
+
+  const textCovid19 = `País: ${country} - Total de casos: ${cases}`
+
+  const copyInfo = () => {
+    navigator.clipboard.writeText(textCovid19)
+  };
+
+  const shareInfo = () => {
+    navigator.share({
+      title: `Dados do Covid-19 - ${country}`,
+      text: textCovid19,
+      url: 'https://covid19.vercel.app/'
+    })
+  };
+
+  const renderShareButton = (
+    <>
+      <Button onClick={shareInfo} text="Compartilhar" />
+    </>
+  );
+
+  const renderCopyButton = (
+    <>
+      <Button onClick={copyInfo} text="Copiar" />
+    </>
+  );
 
   return (
     <div className={styles.container}>
@@ -19,6 +49,7 @@ export default function Panel({ updateAt, onChange, data, country, getCovidData 
           ))}
         </select>
       </div>
+      {navigatorHasShare ? renderShareButton : renderCopyButton}
     </div>
   );
 };
